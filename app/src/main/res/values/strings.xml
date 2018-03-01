@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Tarea 03</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="PHONE_MAC">31220354</string>
+    <string name="PHONE_ALIEN">3331072635</string>
+    <string name="PHONE_LANIX">3312345678</string>
+    <string name="ADDRESS_MAC">California</string>
+    <string name="ADDRESS_ALIEN">Zapopan</string>
+    <string name="ADDRESS_LANIX">Tokyo</string>
+
+</resources>
