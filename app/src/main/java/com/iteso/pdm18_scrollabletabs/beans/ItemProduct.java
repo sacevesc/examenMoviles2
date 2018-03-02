@@ -12,14 +12,16 @@ public class ItemProduct {
     private String phone;
     private String address;
     private Drawable photo;
+    private Drawable store_photo;
 
 
-    public ItemProduct(String title, String store, String phone, String address, Drawable photo) {
+    public ItemProduct(String title, String store, String phone, String address, Drawable photo,Drawable store_photo) {
         this.title = title;
         this.store = store;
         this.phone= phone;
         this.address= address;
         this.photo= photo;
+        this.store_photo=store_photo;
     }
 
     public String getTitle() {
@@ -62,14 +64,21 @@ public class ItemProduct {
         this.photo = photo;
     }
 
+    public Drawable getStore_photo() {
+        return store_photo;
+    }
+
+    public void setStore_photo(Drawable store_photo) {
+        this.store_photo = store_photo;
+    }
+
     @Override
     public String toString() {
         return "ItemProduct{" +
                 "title='" + title + '\'' +
                 ", store='" + store + '\'' +
                 ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", photo=" + photo +
+                ", address='" + address  +
                 '}';
     }
 }

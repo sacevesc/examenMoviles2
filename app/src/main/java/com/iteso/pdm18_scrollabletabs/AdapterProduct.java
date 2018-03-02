@@ -33,6 +33,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         public TextView mPhone;
         public TextView mAddress;
         public ImageView mImage;
+        public ImageView mImageStore;
         public Button mDetail;
 
         public ViewHolder(View v) {
@@ -42,6 +43,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             mPhone = (TextView) v.findViewById(R.id.item_product_phone);
             mAddress = v.findViewById(R.id.item_product_location);
             mImage = v.findViewById(R.id.item_product_image);
+            mImageStore = v.findViewById(R.id.item_product_thumbnail);
             mDetail = v.findViewById(R.id.item_product_detail);
         }
     }
@@ -68,6 +70,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             });
             holder.mAddress.setText(products.get(position).getAddress());
             holder.mImage.setImageDrawable(products.get(position).getPhoto());
+            holder.mImageStore.setImageDrawable(products.get(position).getStore_photo());
             holder.mDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
