@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:id="@+id/item_product_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/cardview_default_elevation"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_margin="@dimen/appbar_padding_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_product_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="Edit:"/>
+
+        <ImageView
+            android:id="@+id/item_product_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            />
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+            <EditText
+                android:layout_weight="1"
+                android:id="@+id/item_product_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#878686"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:hint="Introduce title..."/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+            <EditText
+                android:id="@+id/item_product_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#878686"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:hint="Introduce store..."/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+            <EditText
+                android:id="@+id/item_product_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#878686"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:hint="Introduce location..."/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+            <EditText
+                android:id="@+id/item_product_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#878686"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:hint="Introduce phone..."/>
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+    <Button
+        android:id="@+id/item_product_cancel"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/cardview_dark_background"
+        android:layout_marginRight="2dp"
+        android:text="CANCELAR"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/item_product_save"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/cardview_default_radius"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/item_product_cancel"
+        android:background="@color/colorPrimaryDark"
+        android:text="GUARDAR"
+        android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
