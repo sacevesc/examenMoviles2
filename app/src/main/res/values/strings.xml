@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">Tarea 03</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Iteso Store</string>
+    <string name="action_privacy_policy">Privacy Policy</string>
+    <string name="action_logout">Log out</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="hola_android">Hello Android!</string>
 
     <string name="tech_title_mac">Macbook</string>
     <string name="tech_store_mac">Zapopan</string>
@@ -34,6 +36,7 @@
     <string name="electronics_address">Lopez Mateos #584</string>
 
     <string name="phone_number">Tel:</string>
+    <string name="welcome_to_preferences">WELCOME TO ITESO STORE</string>
 
 
 </resources>
