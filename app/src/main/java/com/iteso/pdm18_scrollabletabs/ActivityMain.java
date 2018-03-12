@@ -186,11 +186,11 @@ public class ActivityMain extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Technology";
+                    return getResources().getString(R.string.tab_0);
                 case 1:
-                    return "Home";
+                    return getResources().getString(R.string.tab_1);
                 case 2:
-                    return "Electronics";
+                    return getResources().getString(R.string.tab_2);
             }
             return null;
         }

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".ActivitySplash">
 
     <TextView
@@ -14,7 +15,8 @@
         android:layout_height="wrap_content"
         android:text="@string/welcome_to_preferences"
         android:gravity="center"
-        android:textSize="36sp"/>
+        android:textColor="@color/cardview_light_background"
+        android:textSize="@dimen/splash_title"/>
 
     <ProgressBar
         android:layout_below="@id/textview"
@@ -22,6 +24,6 @@
         android:layout_height="wrap_content"
         style="@style/Base.Widget.AppCompat.ProgressBar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/progress_bar"
         />
 </RelativeLayout>

@@ -4,4 +4,15 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="image_edit">150dp</dimen>
+    <dimen name="title">30sp</dimen>
+    <dimen name="two">2dp</dimen>
+    <dimen name="tamaño_tienda">80dp</dimen>
+    <dimen name="margen_fuera">5dp</dimen>
+    <dimen name="nombre">20sp</dimen>
+    <dimen name="three">3dp</dimen>
+    <dimen name="foto_grande">180dp</dimen>
+    <dimen name="tamaño_relative">320dp</dimen>
+    <dimen name="progress_bar">10dp</dimen>
+    <dimen name="splash_title">36sp</dimen>
 </resources>

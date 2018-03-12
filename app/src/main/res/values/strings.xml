@@ -37,6 +37,21 @@
 
     <string name="phone_number">Tel:</string>
     <string name="welcome_to_preferences">WELCOME TO ITESO STORE</string>
+    <string name="tab_0">Technology</string>
+    <string name="tab_1">Home</string>
+    <string name="tab_2">Electronics</string>
+    <string name="login">Login</string>
+    <string name="password">password</string>
+    <string name="user">user</string>
+    <string name="edit">Edit:</string>
+    <string name="introduce_title">Introduce title...</string>
+    <string name="introduce_store">Introduce store...</string>
+    <string name="introduce_location">Introduce location...</string>
+    <string name="introduce_phone">Introduce phone...</string>
+    <string name="cancelar">CANCELAR</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="see_more">SEE MORE</string>
+    <string name="share">SHARE</string>
 
 
 </resources>

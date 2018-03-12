@@ -20,14 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="30sp"
+            android:textSize="@dimen/title"
             android:textStyle="bold"
-            android:text="Edit:"/>
+            android:text="@string/edit"/>
 
         <ImageView
             android:id="@+id/item_product_image"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="@dimen/image_edit"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             />
@@ -39,10 +39,10 @@
                 android:id="@+id/item_product_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#878686"
+                android:textColor="@color/colorPrimary"
                 android:layout_marginBottom="5dp"
                 android:textSize="20sp"
-                android:hint="Introduce title..."/>
+                android:hint="@string/introduce_title"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -52,10 +52,10 @@
                 android:id="@+id/item_product_store"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#878686"
+                android:textColor="@color/colorPrimary"
                 android:layout_marginBottom="5dp"
                 android:textSize="20sp"
-                android:hint="Introduce store..."/>
+                android:hint="@string/introduce_store"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -65,10 +65,10 @@
                 android:id="@+id/item_product_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#878686"
+                android:textColor="@color/colorPrimary"
                 android:layout_marginBottom="5dp"
                 android:textSize="20sp"
-                android:hint="Introduce location..."/>
+                android:hint="@string/introduce_location"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -78,10 +78,11 @@
                 android:id="@+id/item_product_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#878686"
+                android:textColor="@color/colorPrimary"
                 android:layout_marginBottom="5dp"
                 android:textSize="20sp"
-                android:hint="Introduce phone..."/>
+                android:inputType="phone"
+                android:hint="@string/introduce_phone"/>
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
@@ -98,10 +99,9 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="@color/cardview_dark_background"
-        android:layout_marginRight="2dp"
-        android:text="CANCELAR"
+        android:text="@string/cancelar"
+        android:layout_marginStart="@dimen/two"
         android:textColor="@android:color/white"/>
 
     <Button
@@ -109,11 +109,10 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/cardview_default_radius"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@id/item_product_cancel"
+        android:layout_marginStart="@dimen/two"
+        android:layout_marginEnd="@dimen/two"
         android:background="@color/colorPrimaryDark"
-        android:text="GUARDAR"
+        android:text="@string/guardar"
         android:textColor="@android:color/white"/>
     </LinearLayout>
 
