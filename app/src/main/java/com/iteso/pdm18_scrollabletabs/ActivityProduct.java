@@ -1,10 +1,7 @@
 package com.iteso.pdm18_scrollabletabs;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,10 +10,10 @@ import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 
 public class ActivityProduct extends AppCompatActivity {
 
-    EditText title,store,location,phone;
+    EditText title, store, location, phone;
     ImageView photo;
-    Button save,cancel;
-    ItemProduct product1,product2;
+    Button save, cancel;
+    ItemProduct product1, product2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +26,10 @@ public class ActivityProduct extends AppCompatActivity {
         save = findViewById(R.id.item_product_save);
         cancel = findViewById(R.id.item_product_cancel);
         photo = findViewById(R.id.item_product_image);
-
-    try{
-        if(getIntent().getExtras() != null){
-            product1 = getIntent().getParcelableExtra("ITEM");
+/*
+   // try{
+     //   if(getIntent().getExtras() != null){
+      //      product1 = getIntent().getParcelableExtra("ITEM");
             if(product1 != null){
                 title.setText(product1.getTitle());
                 store.setText(product1.getStore());
@@ -56,7 +53,7 @@ public class ActivityProduct extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                product2 = new ItemProduct();
+                product2 = new ItemProdcut();
                 product2.setTitle(title.getText().toString());
                 product2.setStore(store.getText().toString());
                 product2.setAddress(location.getText().toString());
@@ -81,5 +78,6 @@ public class ActivityProduct extends AppCompatActivity {
     }
 
 
-
+*/
+    }
 }

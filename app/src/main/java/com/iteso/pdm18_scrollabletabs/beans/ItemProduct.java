@@ -4,63 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by oscarvargas on 26/02/18.
+ * Created by aceve on 18/03/2018.
  */
 
 public class ItemProduct implements Parcelable {
-    private String title;
-    private String store;
-    private String phone;
-    private String address;
-    private int photo;
-    private int code;
-    private int store_photo;
-
-    public ItemProduct(String title, String store, String phone, String address, int photo, int code, int store_photo) {
-        this.title = title;
-        this.store = store;
-        this.phone = phone;
-        this.address = address;
-        this.photo = photo;
-        this.code = code;
-        this.store_photo = store_photo;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.title);
-        dest.writeString(this.store);
-        dest.writeString(this.phone);
-        dest.writeString(this.address);
-        dest.writeInt(this.photo);
-        dest.writeInt(this.code);
-        //dest.writeInt(this.store_photo);
-    }
-
-    public ItemProduct() {
-        this.title = "";
-        this.store = "";
-        this.phone = "";
-        this.address = "";
-        this.photo = 0;
-        //this.store_photo = 0;
-    }
-
-    protected ItemProduct(Parcel in) {
-        this.title = in.readString();
-        this.store = in.readString();
-        this.phone = in.readString();
-        this.address = in.readString();
-        this.photo = in.readInt();
-        this.code = in.readInt();
-        //this.store_photo = in.readInt();
-    }
-
     public static final Creator<ItemProduct> CREATOR = new Creator<ItemProduct>() {
         @Override
         public ItemProduct createFromParcel(Parcel source) {
@@ -72,45 +19,38 @@ public class ItemProduct implements Parcelable {
             return new ItemProduct[size];
         }
     };
+    private int code;
+    private String title;
+    private String description;
+    private Integer image;
+    private Store store;
+    private Category category;
 
-    public String getTitle() {
-        return title;
+    public ItemProduct() {
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    protected ItemProduct(Parcel in) {
+        this.code = in.readInt();
+        this.title = in.readString();
+        this.description = in.readString();
+        this.image = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.store = in.readParcelable(Store.class.getClassLoader());
+        this.category = in.readParcelable(Category.class.getClassLoader());
     }
 
-    public String getStore() {
-        return store;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setStore(String store) {
-        this.store = store;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(int photo) {
-        this.photo = photo;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.code);
+        dest.writeString(this.title);
+        dest.writeString(this.description);
+        dest.writeValue(this.image);
+        dest.writeParcelable(this.store, flags);
+        dest.writeParcelable(this.category, flags);
     }
 
     public int getCode() {
@@ -121,22 +61,55 @@ public class ItemProduct implements Parcelable {
         this.code = code;
     }
 
-    public int getStore_photo() {
-        return store_photo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setStore_photo(int store_photo) {
-        this.store_photo = store_photo;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getImage() {
+        return image;
+    }
+
+    public void setImage(Integer image) {
+        this.image = image;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
     public String toString() {
-        return "ItemProduct{" +
-                "title='" + title + '\'' +
-                ", store='" + store + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", code=" + code +
+        return "ItemProdcut{" +
+                "code=" + code +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", image=" + image +
+                ", store=" + store +
+                ", category=" + category +
                 '}';
     }
 }

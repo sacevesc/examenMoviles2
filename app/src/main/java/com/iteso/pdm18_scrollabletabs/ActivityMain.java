@@ -26,6 +26,7 @@ import java.util.ArrayList;
 
 public class ActivityMain extends AppCompatActivity {
 
+    public FragmentTechnology fragmentTechnology;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -35,10 +36,8 @@ public class ActivityMain extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    public FragmentTechnology fragmentTechnology;
    // public FragmentHome fragmentHome;
     //public FragmentElectronics fragmentElectronics;
-
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -85,23 +84,33 @@ public class ActivityMain extends AppCompatActivity {
             Intent intent = new Intent(ActivityMain.this, ActivityPrivacyPolicy.class);
             startActivity(intent);
             return true;
-        }else if(id==R.id.action_logout){
-            SharedPreferences sharedPreferences = getSharedPreferences("com.iteso.USER_PREFERENCES",MODE_PRIVATE);
+        } else if (id == R.id.action_logout) {
+            SharedPreferences sharedPreferences = getSharedPreferences("com.iteso.USER_PREFERENCES", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.clear();
             editor.apply();
 
             Intent intent = new Intent(ActivityMain.this, ActivityLogin.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             return true;
+            //  }else if(R.id.action_products){
+            // Intent products = new Intent(this, ActivityProduct.class);
+            // startActivityForResult(products, products.notify());
+            //     return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 0 || requestCode == 1 || requestCode == 2) {
+            if (resultCode == Activity.RESULT_OK) {
+                fragmentTechnology.onActivityResult(requestCode, resultCode, data);
+            }
+        }
+    }
 
     /**
      * A placeholder fragment containing a simple view.
@@ -143,7 +152,6 @@ public class ActivityMain extends AppCompatActivity {
             return rootView;
         }
     }
-
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -195,15 +203,6 @@ public class ActivityMain extends AppCompatActivity {
             return null;
         }
 
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 0 || requestCode == 1 || requestCode == 2) {
-            if (resultCode == Activity.RESULT_OK) {
-                fragmentTechnology.onActivityResult(requestCode, resultCode, data);
-            }
-        }
     }
 }
 

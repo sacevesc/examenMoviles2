@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
 import com.iteso.pdm18_scrollabletabs.beans.User;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,6 +31,7 @@ public class ActivitySplash extends AppCompatActivity {
         };
         Timer timer = new Timer();
         timer.schedule(task,3000);
+
     }
 
     public User loadUser(){
