@@ -1,6 +1,8 @@
 package com.iteso.pdm18_scrollabletabs;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,19 +40,19 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
 
         public void onBindViewHolder(ViewHolder holder, final int position) {
             holder.mTitle.setText(products.get(position).getTitle());
-            /*holder.mStore.setText(products.get(position).getStore());
-            holder.mPhone.setText(products.get(position).getPhone());
+            holder.mStore.setText(products.get(position).getStore().getName());
+            holder.mPhone.setText(products.get(position).getStore().getPhone());
             holder.mPhone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(Intent.ACTION_DIAL,
-                            Uri.parse("tel:" + products.get(position).getPhone()));
+                            Uri.parse("tel:" + products.get(position).getStore().getPhone()));
                     context.startActivity(intent);
                 }
             });
-            holder.mAddress.setText(products.get(position).getAddress());
-           */
-            switch (products.get(position).getImage()) {
+            holder.mAddress.setText(products.get(position).getStore().getCity().getName());
+
+            /*switch (products.get(position).getImage()) {
                 case 0: holder.mImage.setImageResource(R.drawable.mac); break;
                 case  1: holder.mImage.setImageResource(R.drawable.alienware); break;
                 case  2: holder.mImage.setImageResource(R.drawable.lanix); break;
@@ -59,7 +61,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 case  5: holder.mImage.setImageResource(R.drawable.phone); break;
                 default: holder.mImage.setImageResource(R.drawable.mac); break;
             }
-
+*/
           /*  switch (products.get(position).getStore_photo()){
                 case 0: holder.mImageStore.setImageResource(R.drawable.bestbuy); break;
                 case  1: holder.mImageStore.setImageResource(R.drawable.dell); break;
@@ -99,7 +101,6 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTitle;
         public TextView mStore;
         public TextView mPhone;
         public TextView mAddress;
@@ -107,6 +108,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         public ImageView mImageStore;
         public Button mDetail;
         public LinearLayout mEdit;
+        private TextView mTitle;
 
         public ViewHolder(View v) {
             super(v);

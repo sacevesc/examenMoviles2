@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -61,6 +62,15 @@ public class ActivityMain extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         tabLayout.setupWithViewPager(mViewPager);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActivityMain.this, ActivityItem.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -74,9 +84,6 @@ public class ActivityMain extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -105,12 +112,19 @@ public class ActivityMain extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 0 || requestCode == 1 || requestCode == 2) {
-            if (resultCode == Activity.RESULT_OK) {
-                fragmentTechnology.onActivityResult(requestCode, resultCode, data);
+        // switch(requestCode) {
+        // case Constants.INTENT_PRODUCTS_NOTIFY:
+        if (resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                ItemProduct itemProduct = data.getParcelableExtra("ITEM");
+                if (itemProduct.getCategory().getName().equalsIgnoreCase("TECHNOLOGY")) {
+                    fragmentTechnology.notifyDataSetChanged(itemProduct);
+                }
             }
         }
+        //   break;
     }
+    // }
 
     /**
      * A placeholder fragment containing a simple view.

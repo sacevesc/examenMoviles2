@@ -56,8 +56,8 @@ public class ItemProductControl {
         String selectQuery = "SELECT S." + DataBaseHandler.KEY_PRODUCT_ID + ","
                 + "S." + DataBaseHandler.KEY_PRODUCT_NAME + ","
                 + "S." + DataBaseHandler.KEY_PRODUCT_CATEGORY + ","
-                + "S." + DataBaseHandler.KEY_PRODUCT_IMAGE + ","
-                + "FROM "
+                + "S." + DataBaseHandler.KEY_PRODUCT_IMAGE
+                + " FROM "
                 + DataBaseHandler.TABLE_PRODUCT + " S, "
                 + DataBaseHandler.TABLE_CATEGORY + " C WHERE S."
                 + DataBaseHandler.KEY_PRODUCT_CATEGORY + "= " + idCategory

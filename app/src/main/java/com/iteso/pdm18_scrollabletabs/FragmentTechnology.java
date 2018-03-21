@@ -1,5 +1,6 @@
 package com.iteso.pdm18_scrollabletabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 import com.iteso.pdm18_scrollabletabs.database.ItemProductControl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /**
@@ -47,8 +49,8 @@ public class FragmentTechnology extends Fragment {
         mAdapter.notifyDataSetChanged();
     }
 
-}
-   /* public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         ItemProduct itemProduct = data.getParcelableExtra("ITEM");
         Iterator<ItemProduct> iterator = products.iterator();
         int position = 0;
@@ -62,7 +64,7 @@ public class FragmentTechnology extends Fragment {
         }
         mAdapter.notifyDataSetChanged();
     }
-*/
+}
 
  /* public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.fragment_activity_main, container, false);

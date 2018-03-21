@@ -1,28 +1,13 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_margin="@dimen/three">
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/activity_item_id"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Id"
-            android:inputType="number" />
-
-        <ImageButton
-            android:id="@+id/activity_item_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:src="@android:drawable/ic_menu_search" />
-    </LinearLayout>
+        android:layout_margin="@dimen/three"
+        android:orientation="vertical">
 
     <EditText
         android:id="@+id/activity_item_title"
@@ -63,11 +48,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/activity_item_description"
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_item_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Description"
-        android:inputType="textMultiLine" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/guardar"
+        android:textColor="@color/cardview_light_background" />
+
+</RelativeLayout>
