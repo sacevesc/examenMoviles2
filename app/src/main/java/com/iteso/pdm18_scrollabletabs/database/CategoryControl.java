@@ -4,7 +4,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.iteso.pdm18_scrollabletabs.beans.Category;
-import com.iteso.pdm18_scrollabletabs.beans.Store;
 
 import java.util.ArrayList;
 
@@ -13,10 +12,6 @@ import java.util.ArrayList;
  */
 
 public class CategoryControl {
-
-    public ArrayList<Store> getStoresWhere(int x, int x1, DataBaseHandler dh) {
-        return new ArrayList<>();
-    }
 
     public ArrayList<Category> getCategories(DataBaseHandler dh) {
         ArrayList<Category> categories = new ArrayList<>();

@@ -27,7 +27,7 @@ public class ActivityProduct extends AppCompatActivity {
         cancel = findViewById(R.id.item_product_cancel);
         photo = findViewById(R.id.item_product_image);
 /*
-   // try{
+e   // try{
      //   if(getIntent().getExtras() != null){
       //      product1 = getIntent().getParcelableExtra("ITEM");
             if(product1 != null){

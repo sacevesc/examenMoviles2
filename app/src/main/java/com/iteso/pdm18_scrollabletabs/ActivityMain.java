@@ -28,17 +28,9 @@ import java.util.ArrayList;
 public class ActivityMain extends AppCompatActivity {
 
     public FragmentTechnology fragmentTechnology;
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+    public FragmentHome fragmentHome;
+    public FragmentElectronics fragmentElectronics;
     private SectionsPagerAdapter mSectionsPagerAdapter;
-   // public FragmentHome fragmentHome;
-    //public FragmentElectronics fragmentElectronics;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -53,8 +45,6 @@ public class ActivityMain extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -70,8 +60,6 @@ public class ActivityMain extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
 
@@ -101,12 +89,7 @@ public class ActivityMain extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             return true;
-            //  }else if(R.id.action_products){
-            // Intent products = new Intent(this, ActivityProduct.class);
-            // startActivityForResult(products, products.notify());
-            //     return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -119,27 +102,18 @@ public class ActivityMain extends AppCompatActivity {
                 ItemProduct itemProduct = data.getParcelableExtra("ITEM");
                 if (itemProduct.getCategory().getName().equalsIgnoreCase("TECHNOLOGY")) {
                     fragmentTechnology.notifyDataSetChanged(itemProduct);
+                } else if (itemProduct.getCategory().getName().equalsIgnoreCase("HOME")) {
+                    fragmentHome.notifyDataSetChanged(itemProduct);
+                } else if (itemProduct.getCategory().getName().equalsIgnoreCase("ELECTRONICS")) {
+                    fragmentElectronics.notifyDataSetChanged(itemProduct);
                 }
             }
         }
-        //   break;
     }
-    // }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -149,8 +123,7 @@ public class ActivityMain extends AppCompatActivity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_activity_main, container, false);
             /*TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));*/
@@ -167,40 +140,33 @@ public class ActivityMain extends AppCompatActivity {
         }
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
+
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
-
-
         @Override
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    if (fragmentTechnology == null) {
+                    if (fragmentTechnology == null)
                         fragmentTechnology = new FragmentTechnology();
-                    }
                     return fragmentTechnology;
-
-                case 1: return new FragmentHome();
-
-                case 2: return new FragmentElectronics();
-
+                case 1:
+                    if (fragmentHome == null)
+                        fragmentHome = new FragmentHome();
+                    return fragmentHome;
+                case 2:
+                    if (fragmentElectronics == null)
+                        fragmentElectronics = new FragmentElectronics();
+                    return fragmentElectronics;
                 default:return new FragmentTechnology();
             }
         }
 
-        ;
-
-
         @Override
-        public int getCount() {
-            // Show 3 total pages.
+        public int getCount() {// Show 3 total pages.
             return 3;
         }
 
@@ -216,13 +182,5 @@ public class ActivityMain extends AppCompatActivity {
             }
             return null;
         }
-
     }
 }
-
-
-
-
-
-
-

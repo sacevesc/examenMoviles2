@@ -82,6 +82,7 @@ public class ItemProduct implements Parcelable {
     }
 
     public void setImage(Integer image) {
+
         this.image = image;
     }
 

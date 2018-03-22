@@ -30,6 +30,16 @@ public class Store implements Parcelable {
     public Store() {
     }
 
+    public Store(int id, String name, String phone, int thumbnail, double latitude, double longitude, City city) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.thumbnail = thumbnail;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.city = city;
+    }
+
     protected Store(Parcel in) {
         this.id = in.readInt();
         this.name = in.readString();
@@ -114,14 +124,6 @@ public class Store implements Parcelable {
 
     @Override
     public String toString() {
-        return "Store{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", thumbnail=" + thumbnail +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                ", city=" + city +
-                '}';
+        return id + " - " + name + ", " + city;
     }
 }

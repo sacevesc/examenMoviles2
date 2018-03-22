@@ -60,16 +60,28 @@ public class ActivityItem extends AppCompatActivity {
         ArrayList<Category> categoriesList = categoryControl.getCategories(dh);
 
 //Create Adapter to show into Spinner, ListView or GridLayout
+
+      /*  ArrayList<String> myimages = new ArrayList<>();
+        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.alienware)));
+        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.dell)));
+        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.lampara)));
+        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.planta)));
+        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.phone)));
+      *///  imagesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, myimages);
+        //images.setAdapter(imagesAdapter);
+        images.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                imageSelected = position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
         storesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storesList);
         stores.setAdapter(storesAdapter);
-        categoriesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categoriesList);
-        categories.setAdapter(categoriesAdapter);
-
-        ArrayList<String> myimages = new ArrayList<>();
-        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.mac)));
-        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.alienware)));
-        imagesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, myimages);
-        images.setAdapter(imagesAdapter);
         stores.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -80,10 +92,13 @@ public class ActivityItem extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-        images.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        categoriesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categoriesList);
+        categories.setAdapter(categoriesAdapter);
+        categories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                imageSelected = position;
+                categorySelected = categoriesAdapter.getItem(position);
             }
 
             @Override
@@ -96,14 +111,14 @@ public class ActivityItem extends AppCompatActivity {
             public void onClick(View v) {
                 if (productoValido()) {
                     ItemProduct itemProduct = new ItemProduct();
-
+                    itemProduct.setCode(DataBaseHandler.PRODUCT_ID_COUNTER);
                     itemProduct.setTitle(title.getText().toString().trim());
                     itemProduct.setStore(storeSelected);
                     itemProduct.setCategory(categorySelected);
                     itemProduct.setImage(imageSelected);
                     ItemProductControl itemProductControl = new ItemProductControl();
                     itemProductControl.addItemProduct(itemProduct, dh);
-
+                    DataBaseHandler.PRODUCT_ID_COUNTER++;
                     Intent intent = new Intent();
                     intent.putExtra("ITEM", itemProduct);
                     setResult(Activity.RESULT_OK, intent);

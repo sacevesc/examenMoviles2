@@ -41,6 +41,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     public static final String KEY_STOREPRODUCT_STORE = "idStore";
     private static final String DATABASE_NAME = "MyProducts.db";
     private static final int DATABASE_VERSION = 1;
+    public static int STOREPRODUCT_ID_COUNTER = 1;
+    public static int PRODUCT_ID_COUNTER = 0;
     private static DataBaseHandler dataBaseHandler;
 
     private DataBaseHandler(Context context) {
@@ -93,7 +95,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + TABLE_CATEGORY + " (" + KEY_CATEGORY_NAME + ") VALUES ('TECHNOLOGY')");
         db.execSQL("INSERT INTO " + TABLE_CATEGORY + " (" + KEY_CATEGORY_NAME + ") VALUES ('HOME')");
         db.execSQL("INSERT INTO " + TABLE_CATEGORY + " (" + KEY_CATEGORY_NAME + ") VALUES ('ELECTRONICS')");
-        db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_NAME + ") VALUES ('Guadalajara')");
+        db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_NAME + ")VALUES ('Guadalajara')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_NAME + ")VALUES ('Zapopan')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_NAME + ") VALUES ('Tonala')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_NAME + ") VALUES ('Tlajomulco')");
@@ -101,10 +103,18 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_NAME + ") VALUES ('Tokio')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_NAME + ") VALUES ('Moscu')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_NAME + ") VALUES ('Berlin')");
+
+        //db.execSQL("INSERT INTO " + TABLE_STOREPRODUCT + " (" + KEY_STOREPRODUCT_PRODUCT + "," + KEY_STOREPRODUCT_STORE + ") VALUES (2,1)");
+       /* db.execSQL("INSERT INTO " + TABLE_STORE + " ("
+                + KEY_STORE_NAME + "," + KEY_STORE_PHONE + "," + KEY_STORE_CITY + "," + KEY_STORE_THUMBNAIL + ","
+                + KEY_STORE_LATTITUDE + "," + KEY_STORE_LONGITUDE + ") VALUES ('BESTBUY', '33 123 4567', 1, 0, 20.607360, -103.414886)");
         db.execSQL("INSERT INTO " + TABLE_STORE + " ("
                 + KEY_STORE_NAME + "," + KEY_STORE_PHONE + "," + KEY_STORE_CITY + "," + KEY_STORE_THUMBNAIL + ","
-                + KEY_STORE_LATTITUDE + "," + KEY_STORE_LONGITUDE + ") VALUES ('BESTBUY', '33 123 4567', 4, 0, 20.607360, -103.414886)");
-        db.execSQL("INSERT INTO " + TABLE_STOREPRODUCT + " (" + KEY_STOREPRODUCT_PRODUCT + "," + KEY_STOREPRODUCT_STORE + ") VALUES (2,1)");
+                + KEY_STORE_LATTITUDE + "," + KEY_STORE_LONGITUDE + ") VALUES ('SAN JUAN', '22222222', 2, 1, 20.607360, -103.414886)");
+        db.execSQL("INSERT INTO " + TABLE_STORE + " ("
+                + KEY_STORE_NAME + "," + KEY_STORE_PHONE + "," + KEY_STORE_CITY + "," + KEY_STORE_THUMBNAIL + ","
+                + KEY_STORE_LATTITUDE + "," + KEY_STORE_LONGITUDE + ") VALUES ('BESTBUY', '33 333 3333', 2, 2, 20.607360, -103.414886)");
+        */
     }
 
     @Override

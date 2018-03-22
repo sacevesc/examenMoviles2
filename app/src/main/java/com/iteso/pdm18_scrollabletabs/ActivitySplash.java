@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.iteso.pdm18_scrollabletabs.beans.City;
 import com.iteso.pdm18_scrollabletabs.beans.Store;
 import com.iteso.pdm18_scrollabletabs.beans.User;
+import com.iteso.pdm18_scrollabletabs.database.CityControl;
 import com.iteso.pdm18_scrollabletabs.database.DataBaseHandler;
 import com.iteso.pdm18_scrollabletabs.database.StoreControl;
 
@@ -44,15 +46,30 @@ public class ActivitySplash extends AppCompatActivity {
         DataBaseHandler dh = DataBaseHandler.getInstance(ActivitySplash.this);
         StoreControl storeControl = new StoreControl();
         ArrayList<Store> tiendas = storeControl.getStores(dh);
-        Toast.makeText(ActivitySplash.this, "Se obtuvieron las tiendas", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ActivitySplash.this, "Obteniendo tiendas", Toast.LENGTH_SHORT).show();
 
-        if (tiendas.size() == 0) añadirTienda();
+        if (tiendas.size() == 0) añadirTiendas();
         Toast.makeText(ActivitySplash.this, tiendas.toString(), Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(ActivitySplash.this, tiendas.get(1).getName(), Toast.LENGTH_SHORT).show();
 
     }
 
-    private void añadirTienda() {
+    private void añadirTiendas() {
         Toast.makeText(ActivitySplash.this, "NO HAY", Toast.LENGTH_SHORT).show();
+        StoreControl storeControl = new StoreControl();
+        CityControl cityControl = new CityControl();
+        City city1 = cityControl.getCityById(1, DataBaseHandler.getInstance(ActivitySplash.this));
+        City city2 = cityControl.getCityById(2, DataBaseHandler.getInstance(ActivitySplash.this));
+        City city3 = cityControl.getCityById(3, DataBaseHandler.getInstance(ActivitySplash.this));
+
+        Store store1 = new Store(1, "Bestbuy", "33 123 4567", 0, 20.607360, -103.414886, city1);
+        storeControl.addStore(store1, DataBaseHandler.getInstance(ActivitySplash.this));
+
+        Store store2 = new Store(2, "San Juan", "35 323 3232", 1, 24.607360, -123.414886, city2);
+        storeControl.addStore(store2, DataBaseHandler.getInstance(ActivitySplash.this));
+
+        Store store3 = new Store(3, "Dell", "44 123 7653", 2, 28.607360, -921.414886, city3);
+        storeControl.addStore(store3, DataBaseHandler.getInstance(ActivitySplash.this));
 
     }
 

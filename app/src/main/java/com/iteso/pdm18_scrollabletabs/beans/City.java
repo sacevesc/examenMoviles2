@@ -23,6 +23,12 @@ public class City implements Parcelable {
     private String name;
 
     public City() {
+        //name="";
+    }
+
+    public City(int idCity, String name) {
+        id = idCity;
+        this.name = name;
     }
 
     protected City(Parcel in) {
@@ -59,9 +65,6 @@ public class City implements Parcelable {
 
     @Override
     public String toString() {
-        return "City{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

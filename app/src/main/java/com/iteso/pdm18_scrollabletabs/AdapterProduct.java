@@ -11,15 +11,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iteso.pdm18_scrollabletabs.beans.ItemProduct;
 
 import java.util.ArrayList;
 
-
-/**
- * Created by oscarvargas on 26/02/18.
- */
 
 public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHolder>{
 
@@ -39,6 +36,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         }
 
         public void onBindViewHolder(ViewHolder holder, final int position) {
+            holder.mAddress.setText(products.get(position).getStore().getCity().getName());
             holder.mTitle.setText(products.get(position).getTitle());
             holder.mStore.setText(products.get(position).getStore().getName());
             holder.mPhone.setText(products.get(position).getStore().getPhone());
@@ -50,9 +48,9 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                     context.startActivity(intent);
                 }
             });
-            holder.mAddress.setText(products.get(position).getStore().getCity().getName());
 
-            /*switch (products.get(position).getImage()) {
+
+            switch (products.get(position).getImage()) {
                 case 0: holder.mImage.setImageResource(R.drawable.mac); break;
                 case  1: holder.mImage.setImageResource(R.drawable.alienware); break;
                 case  2: holder.mImage.setImageResource(R.drawable.lanix); break;
@@ -61,15 +59,21 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 case  5: holder.mImage.setImageResource(R.drawable.phone); break;
                 default: holder.mImage.setImageResource(R.drawable.mac); break;
             }
-*/
-          /*  switch (products.get(position).getStore_photo()){
+
+            switch (products.get(position).getStore().getThumbnail()) {
                 case 0: holder.mImageStore.setImageResource(R.drawable.bestbuy); break;
-                case  1: holder.mImageStore.setImageResource(R.drawable.dell); break;
-                case  2: holder.mImageStore.setImageResource(R.drawable.sanjuan); break;
+                case 1:
+                    holder.mImageStore.setImageResource(R.drawable.sanjuan);
+                    break;
+                case 2:
+                    holder.mImageStore.setImageResource(R.drawable.dell);
+                    break;
                 case  3: holder.mImageStore.setImageResource(R.drawable.homedepot); break;
                 case  4: holder.mImageStore.setImageResource(R.drawable.vivero); break;
                 case  5: holder.mImageStore.setImageResource(R.drawable.unlock); break;
-                default: holder.mImageStore.setImageResource(R.drawable.mac); break;
+                default:
+                    holder.mImageStore.setImageResource(R.drawable.vivero);
+                    break;
             }
             holder.mDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,22 +82,16 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 }
             });
 
-            holder.mEdit.setOnClickListener(new View.OnClickListener() {
+         /*   holder.mEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ItemProduct itemProduct = new ItemProdcut(products.get(position).getTitle(),
-                                                              products.get(position).getStore(),
-                                                                products.get(position).getAddress(),
-                                                                products.get(position).getPhone(),
-                                                                products.get(position).getPhoto(),
-                                                                products.get(position).getCode(),
-                                                                products.get(position).getStore_photo());
+                    ItemProduct itemProduct = new ItemProduct();
                     Intent intento = new Intent(context,ActivityProduct.class);
                     intento.putExtra("ITEM", itemProduct);
                     ((ActivityMain) context).startActivityForResult(intento, products.get(position).getCode());
                 }
             });
-            */
+          */
         }
 
         public int getItemCount() {

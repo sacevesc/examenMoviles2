@@ -26,10 +26,7 @@ public class StoreControl {
         values.put(DataBaseHandler.KEY_STORE_PHONE, store.getPhone());
         values.put(DataBaseHandler.KEY_STORE_THUMBNAIL, store.getThumbnail());
         values.put(DataBaseHandler.KEY_STORE_CITY, store.getCity().getId());
-        values.put(DataBaseHandler.KEY_STORE_CITY, store.getCity().getName());
-
-
-        db.insert("store", null, values);
+        db.insert(DataBaseHandler.TABLE_STORE, null, values);
 
         try {
             db.close();
@@ -70,7 +67,7 @@ public class StoreControl {
         SQLiteDatabase db = dh.getReadableDatabase();
         Cursor cursor = db.rawQuery(select, null);
 
-        if (cursor.moveToNext()) {
+        while (cursor.moveToNext()) {
             Store store = new Store();
             store.setId(cursor.getInt(0));
             store.setLatitude(cursor.getDouble(1));
@@ -95,9 +92,8 @@ public class StoreControl {
     }
 
 
-    public ArrayList<Store> getStoreById(int idStore, DataBaseHandler dh) {
-        ArrayList<Store> stores = new ArrayList<>();
-
+    public Store getStoreById(int idStore, DataBaseHandler dh) {
+        Store store = new Store();
         String selectQuery = "SELECT S." + DataBaseHandler.KEY_STORE_ID + ","
                 + "S." + DataBaseHandler.KEY_STORE_LATTITUDE + ","
                 + "S." + DataBaseHandler.KEY_STORE_LONGITUDE + ","
@@ -114,7 +110,6 @@ public class StoreControl {
         SQLiteDatabase db = dh.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToNext()) {
-            Store store = new Store();
             store.setId(cursor.getInt(0));
             store.setLatitude(cursor.getDouble(1));
             store.setLongitude(cursor.getDouble(2));
@@ -125,7 +120,6 @@ public class StoreControl {
             city.setId(cursor.getInt(6));
             city.setName(cursor.getString(7));
             store.setCity(city);
-            stores.add(store);
         }
         try {
             cursor.close();
@@ -134,7 +128,7 @@ public class StoreControl {
         }
         db = null;
         cursor = null;
-        return stores;
+        return store;
     }
 
 

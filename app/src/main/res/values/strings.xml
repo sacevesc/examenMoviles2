@@ -44,15 +44,27 @@
     <string name="password">password</string>
     <string name="user">user</string>
     <string name="edit">Edit:</string>
-    <string name="introduce_title">Introduce title...</string>
-    <string name="introduce_store">Introduce store...</string>
-    <string name="introduce_location">Introduce location...</string>
-    <string name="introduce_phone">Introduce phone...</string>
+    <string name="introduce_title">Introduce title</string>
+    <string name="introduce_store">Introduce store</string>
+    <string name="introduce_location">Introduce location</string>
+    <string name="introduce_phone">Introduce phone</string>
     <string name="cancelar">CANCELAR</string>
     <string name="guardar">GUARDAR</string>
     <string name="see_more">SEE MORE</string>
     <string name="share">SHARE</string>
     <string name="title_activity_item">ActivityItem</string>
+    <string name="image">Image</string>
+    <string name="store">Store</string>
+    <string name="title">Title</string>
+    <string name="category">Category</string>
 
+    <string-array name="activity_item_images_spinner">
+        <item>"Mac"</item>
+        <item>"Alienware"</item>
+        <item>"Lanix"</item>
+        <item>"Lampara"</item>
+        <item>"Planta"</item>
+        <item>"Telefono"</item>
+    </string-array>
 
 </resources>
