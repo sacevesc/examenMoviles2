@@ -50,7 +50,6 @@ public class ActivitySplash extends AppCompatActivity {
 
         if (tiendas.size() == 0) añadirTiendas();
         Toast.makeText(ActivitySplash.this, tiendas.toString(), Toast.LENGTH_SHORT).show();
-        //  Toast.makeText(ActivitySplash.this, tiendas.get(1).getName(), Toast.LENGTH_SHORT).show();
 
     }
 

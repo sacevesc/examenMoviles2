@@ -36,9 +36,9 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         }
 
         public void onBindViewHolder(ViewHolder holder, final int position) {
-            holder.mAddress.setText(products.get(position).getStore().getCity().getName());
+            holder.mAddress.setText(products.get(holder.getAdapterPosition()).getStore().getCity().getName());
             holder.mTitle.setText(products.get(position).getTitle());
-            holder.mStore.setText(products.get(position).getStore().getName());
+            holder.mStore.setText(products.get(holder.getAdapterPosition()).getStore().getName());
             holder.mPhone.setText(products.get(position).getStore().getPhone());
             holder.mPhone.setOnClickListener(new View.OnClickListener() {
                 @Override

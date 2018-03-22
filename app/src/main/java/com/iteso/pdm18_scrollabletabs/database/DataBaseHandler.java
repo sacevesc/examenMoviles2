@@ -42,7 +42,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "MyProducts.db";
     private static final int DATABASE_VERSION = 1;
     public static int STOREPRODUCT_ID_COUNTER = 1;
-    public static int PRODUCT_ID_COUNTER = 0;
+    public static int PRODUCT_ID_COUNTER = 1;
     private static DataBaseHandler dataBaseHandler;
 
     private DataBaseHandler(Context context) {

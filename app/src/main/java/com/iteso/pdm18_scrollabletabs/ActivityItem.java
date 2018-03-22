@@ -29,7 +29,6 @@ public class ActivityItem extends AppCompatActivity {
     protected EditText title;
     protected ArrayAdapter<Store> storesAdapter;
     protected ArrayAdapter<Category> categoriesAdapter;
-    protected ArrayAdapter<String> imagesAdapter;
     protected DataBaseHandler dh; //DataBase Instance
     protected Store storeSelected; //Store selected in spinner
     protected Category categorySelected; //Category selected in spinner
@@ -61,14 +60,7 @@ public class ActivityItem extends AppCompatActivity {
 
 //Create Adapter to show into Spinner, ListView or GridLayout
 
-      /*  ArrayList<String> myimages = new ArrayList<>();
-        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.alienware)));
-        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.dell)));
-        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.lampara)));
-        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.planta)));
-        myimages.add(String.valueOf(getResources().getDrawable(R.drawable.phone)));
-      *///  imagesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, myimages);
-        //images.setAdapter(imagesAdapter);
+
         images.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -116,9 +108,11 @@ public class ActivityItem extends AppCompatActivity {
                     itemProduct.setStore(storeSelected);
                     itemProduct.setCategory(categorySelected);
                     itemProduct.setImage(imageSelected);
+
                     ItemProductControl itemProductControl = new ItemProductControl();
                     itemProductControl.addItemProduct(itemProduct, dh);
                     DataBaseHandler.PRODUCT_ID_COUNTER++;
+
                     Intent intent = new Intent();
                     intent.putExtra("ITEM", itemProduct);
                     setResult(Activity.RESULT_OK, intent);
@@ -163,16 +157,3 @@ public class ActivityItem extends AppCompatActivity {
 
 
 }
-
-
-
-/*
-
-
-<android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />*/

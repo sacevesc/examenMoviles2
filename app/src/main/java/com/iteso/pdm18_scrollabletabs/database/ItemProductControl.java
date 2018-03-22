@@ -20,13 +20,13 @@ public class ItemProductControl {
 
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(DataBaseHandler.KEY_PRODUCT_ID, product.getCode());
+        values.put(DataBaseHandler.KEY_PRODUCT_ID, DataBaseHandler.PRODUCT_ID_COUNTER);
         values.put(DataBaseHandler.KEY_PRODUCT_NAME, product.getTitle());
         values.put(DataBaseHandler.KEY_PRODUCT_IMAGE, product.getImage());
         values.put(DataBaseHandler.KEY_PRODUCT_CATEGORY, product.getCategory().getId());
         db.insert(DataBaseHandler.TABLE_PRODUCT, null, values);
+        DataBaseHandler.PRODUCT_ID_COUNTER++;
         //////////////
-
         values = new ContentValues();
         values.put(DataBaseHandler.KEY_STOREPRODUCT_ID, DataBaseHandler.STOREPRODUCT_ID_COUNTER);
         values.put(DataBaseHandler.KEY_STOREPRODUCT_PRODUCT, product.getCode());
@@ -46,12 +46,12 @@ public class ItemProductControl {
     private void addStoreProduct(ItemProduct product, DataBaseHandler dh) {
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues values = new ContentValues();
+        //String select = "SELECT "+ DataBaseHandler.KEY_PRODUCT_ID + " FROM " + DataBaseHandler.TABLE_PRODUCT + " WHERE "+
         values.put(DataBaseHandler.KEY_STOREPRODUCT_ID, DataBaseHandler.STOREPRODUCT_ID_COUNTER);
         values.put(DataBaseHandler.KEY_STOREPRODUCT_PRODUCT, product.getCode());
         values.put(DataBaseHandler.KEY_STOREPRODUCT_STORE, product.getStore().getId());
         db.insert(DataBaseHandler.TABLE_STOREPRODUCT, null, values);
         DataBaseHandler.STOREPRODUCT_ID_COUNTER++;
-
         try {
             db.close();
         } catch (Exception e) {
